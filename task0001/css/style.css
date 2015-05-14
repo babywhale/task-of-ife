@@ -1,0 +1,417 @@
+*{
+	text-decoration: none;
+	list-style: none;
+	font: 14px 宋体;
+	margin: 0;
+	padding: 0;
+}
+body{
+	margin-bottom: -100px;
+	background-color: #EEEEEE;
+	width: 100%;
+	
+}
+section p{
+	text-indent: 2em;
+}
+/****************************head部分*****************************/
+header{
+	width: 100%;
+	min-width: 1060px;
+	height: 80px;
+	background-color: #522A5C;
+	position: relative;
+
+}
+#icon-github{
+	position: absolute;
+	right: 10px;
+	bottom: 0;
+}
+.head-center{
+	max-width: 980px;
+	height: 80px;
+	margin: 0 auto;
+	background-color: #522A5C;
+	position: relative;
+
+}
+#mylogo{
+	width: 40px;
+	height: 40px;
+	position: absolute;
+	left: 0;
+	bottom: 0;
+}
+.head-nav{
+	position: absolute;
+	right: 0;
+	bottom: 5px;
+}
+.head-nav li{
+	display: inline-block;
+	margin-left: 28px;
+
+}
+/****************************foot部分*****************************/
+footer{
+	width: 100%;
+	min-width: 1060px;
+	min-height: 500px;
+	background-color: black;
+	position: relative;
+	clear: both;
+}
+
+
+.foot-nav li{
+	display: inline-block;
+	margin-left: 28px;
+	line-height: 40px;
+
+}
+.foot-nav{
+	
+	height: 40px;
+	margin-left: 40%;
+	
+}
+hr{
+	clear: both;
+	color: #555;
+}
+.foot-link-wrap{
+	
+	margin: 30px 100px;
+	color: white;
+}
+.foot-link {
+	width: 19%;
+	display: inline-block;
+	vertical-align: top;
+}
+.foot-link-wrap p{
+	margin-bottom: 30px;
+}
+.head-nav a:link, .head-nav a:visited,footer a:link, footer a:visited {
+	color: white;
+}
+.head-nav a:hover, .head-nav a:focus, .head-nav a:active,footer a:hover, footer a:focus, footer a:active{
+	color: #E99DFD;
+}
+#banquan{
+	text-align: center;
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 60px;
+}
+#btmicon{
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	margin: 0 auto;
+
+	
+}
+/****************************index部分*****************************/
+.top{
+	
+	width: 100%;
+	height: 600px;/*怎样确定高度*/
+	background: white url(../img/banner-bg.jpg) no-repeat scroll;
+	background-size: auto 100%;
+	position:relative;
+
+}
+
+	
+
+.top-content{
+	max-width: 400px;
+	height: 100px;
+	position: absolute;
+	color: white;
+	background: -webkit-linear-gradient(top, rgba(255,255,255,0.7) 0%, rgba(255,255,255,0.5) 75%, rgba(255,255,255,0) 100%);
+	background: -o-linear-gradient(top, rgba(255,255,255,0.7) 0%, rgba(255,255,255,0.5) 75%, rgba(255,255,255,0) 100%);
+	background: -maz-linear-gradient(top, rgba(255,255,255,0.7) 0%, rgba(255,255,255,0.5) 75%, rgba(255,255,255,0) 100%);
+	right: 180px;
+	bottom: 0;
+	padding: 10px 10px 30px;
+}
+.top-content h2{
+	text-align: right;
+	font-size: 14px;
+	margin-bottom: 12px;
+}
+.top-content p{
+	font-size: 12px;
+	line-height: 150%;
+}
+.middle{
+	width: 100%;
+	min-height: 500px;
+	background-color: #eee;
+	padding-bottom: 100px;
+}
+.box-wrap{
+	overflow: hidden;
+	max-width: 1000px;
+	margin: 0 auto ;
+}
+.box{
+	float: left;
+	width: 320px;
+	background: white;
+	margin: 10px 5px 0;
+	position: relative;
+	text-align: left;
+	padding-bottom: 99999px;
+	margin-bottom: -99999px;
+
+
+}
+.box img{
+	margin: 10px 10px;
+}
+.box p{
+	padding: 5px 30px 25px;
+}
+.bottom{
+	width: 100%;
+	min-height: 440px;
+	background-color: white;
+	position: relative;
+	
+}
+.bottom h1{
+	max-width: 600px;
+	margin: 160px auto 50px;
+	text-align: center;
+	font: 20px "Centery Gothic";
+}
+.bottom p{
+	max-width: 600px;
+	text-align: left;
+	margin: 0 auto;
+	font: 14px 宋体;
+}
+#portrait{
+	position: absolute;
+	top: -210px;
+	left: 44%;
+}
+
+/***************************blog部分*****************************/
+.main-wrap{
+	background-color: white;
+}
+.clearfix{
+	overflow: auto;
+	zoom: 1;
+}/*为啥没起作用？？？？**/
+#blog{
+	width: 980px;
+	margin: 0 auto;
+	overflow: visible;
+}
+#blog-main{
+	width: 720px;
+	float: left;
+	margin: 30px 0 100px;
+	overflow: visible;
+}
+#blog-side{
+	width: 245px;
+	float: right;
+	margin: 30px 0 100px; 
+}
+.article{
+	background-color: white;
+	margin-bottom: 15px;
+	position: relative;
+	padding: 30px 20px 20px;	
+}
+.article h2{
+	font-size: 16px;
+	color: #a660b7;
+}
+.article h3{
+	font-size: 12px;
+	color: #666666;
+	padding: 10px 0 20px;
+}
+.article .end-sign{
+	text-align: right;
+	color: #999999;
+	padding: 20px 0 10px;
+}
+.left-tag{
+	width: 50px;
+	height: 30px;
+	position: absolute;
+	left:-50px;
+	text-align: center;
+	line-height: 30px;
+}
+.date-tag{
+	top: 30px;
+	background-color: #522A5C;
+}
+.mark-tag{
+	top: 60px;
+	background-color: #a660b7; 
+}
+.end-sign .words{
+	padding: 0 0.5em;
+}
+.page {
+	list-style: none;
+	
+}
+.page li{
+	display: inline-block;
+	margin-left: 10px;
+}
+.page li:first-child{
+	margin-left: 30px;
+}
+.page a{
+	background-color: white;
+	display: block;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	padding: 15px;
+	min-width: 46px;
+	text-align: center;
+	color: #999999;
+}
+.page a:link, .page a:visited{
+	color: black;
+}
+/*此处有待完善，不能点的鼠标过处不该显示紫色*/
+.page a:hover, .page a:focus, .page a:active{
+	background-color: #a660b7;
+	color: white;
+}
+.page a.now{
+	background-color: #a660b7;
+	color: white;
+}
+/*侧栏*/
+#blog-side .box2{
+	margin-bottom: 15px;
+	background-color: white;
+}
+/*搜索框*/
+.search{
+	padding: 20px;
+}
+.search input{
+	border: 1px solid #999999;
+	height: 38px;
+	width: 101px;
+	vertical-align: middle;/*与button水平对齐*/
+	float: left;/*与button靠紧*/
+	padding-left: 40px;
+	background: url(../img/icon-glass.png) no-repeat left center;
+	background-size: 40px 40px;
+}
+.search-button{
+	border: none;
+	cursor: pointer;/*光标样式*/
+	width: 50px;
+	height: 40px;
+	font-size: 26px;
+	font-weight: bold;
+	color: white;
+	background-color: #999999;
+	vertical-align: middle;
+}
+/*分类栏*/
+#blog-side .mark {
+	list-style: none;
+	background-color: #EEEEEE;
+}
+#blog-side .mark li{
+	height: 50px;
+	margin-bottom: 1px;
+}
+#blog-side .mark a{
+	display: block;
+	box-sizing: border-box;
+	width: 100%;
+	height: 100%;
+	border-left: 6px solid #a660b7;
+	padding-left: 20px;
+	background-color: white;
+	line-height: 50px;
+	
+}
+#blog-side .mark a.now{
+	border-left: 6px solid #522A5C;
+}
+#blog-side .mark a:link, #blog-side .mark a:visited{
+	color: #999999;
+}
+#blog-side .mark a:hover, #blog-side .mark a:focus, #blog-side .mark a:active{
+	color: white;
+	background-color: #a660b7;
+}
+/*日历部分*/
+.calendar caption [rel="prev"]{
+	float: left;
+	margin-left: 10px;
+}
+.calendar caption [rel="next"]{
+	float: right;
+	margin-right: 10px;
+}
+.calendar th, .calendar td{
+	width: 30px;
+	height: 30px;
+	text-align: center;
+}
+.calendar tr{
+	border-bottom: 1px solid #999999;
+}/*为什么没有效果呢*/
+.calendar table{
+	margin: 0 auto;
+	padding: 0 20px 20px;
+}
+.calendar caption{
+	padding: 20px 20px 0;
+}
+.calendar caption a,
+.calendar caption span{
+	color: #a660b7;
+	font-weight: bold;
+} 
+.calendar td.marked{
+	color: #a660b7;
+	font-weight: bold;
+}
+.calendar td.now{
+	color: white;
+	background-color: #a660b7;
+}/*有待调整，背景高度应该再小一点*/
+/*标签云*/
+.tag-title{
+	color: #999999;
+	padding: 10px 20px 20px;
+}
+.tag{
+	color: #a660b7;
+	padding: 0 20px 30px;
+}
+.tag1{
+    font-size: 26px;
+}
+.tag2{
+	font-size: 20px;
+}
+.tag3{
+	font-size: 14px;
+}
