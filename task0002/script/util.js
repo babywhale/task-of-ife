@@ -276,3 +276,37 @@ function getCookie(cookieName) {
     return cookieValue;
     
 }
+
+//封装一个Ajax方法
+function ajax(url, options){
+	var xhr;
+	if(typeof XMLHttpRequest != 'undefined'){
+		xhr = new XMLHttpRequest();
+	}
+	else xhr = new ActiveXObject(Microsoft.XMLHTTP);
+	//var way = "get";
+	var obj = options["data"];
+	var parts = [];
+	for(var p in obj){
+		parts.push(encodeURIComponent(p)+"="+encodeURIComponent(obj[p]));
+	}
+	xhr.onreadystatechange = function(){
+		if(xhr.readyState == 4){
+			if((xhr.status >= 200 && xhr.status < 300) || xhr.status == 304){
+				options["onsuccess"](xhr.responseText, xhr);
+			}
+			else{
+				options["onfail"](xhr.responseText, xhr);
+			}
+		}
+	}
+	if(options["type"] == "post"){
+		xhr.open("post", url, true);
+		xhr.send(parts.join("&"));
+	}
+	else{
+		xhr.open("get", url+"?"+parts.join("&"), true);
+		xhr.send(null);
+	}
+
+}
