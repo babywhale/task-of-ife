@@ -32,6 +32,10 @@ function showHabit2(){
 		//第二阶段添加的部分
 		text = text.replace(/\s|,|，|、|；|;|\n|\r+/g, ",");
 		//注意：js中string的值不能改变，所以要再赋值一下才可以，不能去掉前面的"text=";
+		//String 类定义的方法都不能改变字符串的内容。
+		//像 String.toUpperCase() 这样的方法，返回的是全新的字符串，而不是修改原始字符串。
+		//在我理解，因为string是基本数据类型，而js中函数的参数都是按值传递的，
+		//对于基本数据类型，就是复制了一份传进去，因此原先的值不会改变。
 
 		var habits = text.split(",");
 		//用util.js中的函数去重
