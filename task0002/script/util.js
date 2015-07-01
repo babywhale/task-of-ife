@@ -29,16 +29,20 @@ function uniqArray(arr){
 // 对字符串头尾进行空格字符的去除、包括全角半角空格、Tab等，返回一个字符串
 // 尝试使用一行简洁的正则表达式完成该题目
 function trim(str){
-	return str.replace(/(^/s*)|(/s*$)/g, str);
+	return str.replace(/(^\s*)|(\s*$)/g, "");//将首尾的空格替换成""
 }
 
 // 实现一个遍历数组的方法，针对数组中每一个元素执行fn函数，并将数组索引和元素作为参数传递
 function each(arr, fn){
+	console.log(arr);
 	for(var i=0; i<arr.length; i++){
-		fn(arr[i], i);
-		if(i != arr.length-1){
-			console.log(", ");
-		}
+		(function(i, elem){
+			fn(i, elem)
+		})(i, arr[i]);
+		// fn(arr[i], i);
+		// if(i != arr.length-1){
+		// 	console.log(", ");
+		// }
 	}
 }
 // 获取一个对象里面第一层元素的数量，返回一个整数
@@ -217,7 +221,7 @@ function addEnterEvent(element, listener) {
     }
 }
 //封装
-//js中each遍历的用法
+//each函数是上面自己写过的啊
 $.on = function(selector, event, listener) {
     each($(selector), function(item){
     	addEvent(item, event, listener);
@@ -284,7 +288,7 @@ function ajax(url, options){
 		xhr = new XMLHttpRequest();
 	}
 	else xhr = new ActiveXObject(Microsoft.XMLHTTP);
-	//var way = "get";
+	
 	var obj = options["data"];
 	var parts = [];
 	for(var p in obj){
