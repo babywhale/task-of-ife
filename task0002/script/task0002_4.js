@@ -1,5 +1,5 @@
 addEvent(window, "load", function(){
-	var suggetData = ['apple','banana','coffee','dark'];
+	var suggetData = ['apple','banana','coffee','duck'];
 	function createList(datarr){
 		var doc = document;//减少对全局变量的访问次数
 		var text_input = doc.getElementById("text_input");
