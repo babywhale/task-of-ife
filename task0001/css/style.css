@@ -199,6 +199,8 @@ hr{
 }
 #portrait{
 	position: absolute;
+	width: 160px;
+	height: 160px;
 	top: -210px;
 	left: 44%;
 }
@@ -571,4 +573,77 @@ hr{
 }
 .paihang-bar .bar5{
 	width: 20%;
+}
+/***************************about部分*******************************/
+#about_main{
+	width: 980px;
+	margin: 100px auto 30px;
+	position: relative;
+}
+#about_main_inner{  /*为了头像不被截断，加了这一层div，把头像图片放到了这个div的外面*/
+	width: 100%;
+	overflow: hidden;
+}
+#about_portrait{
+	width: 160px;
+	height: 160px;
+	border: 10px solid #eee;
+	border-radius: 100%;
+	position: absolute;
+	top: -60px;
+	left: 400px;
+}
+#about_main .submain{
+	width: 487px;
+	height: 100%;
+	padding-bottom: 9999px;/*使两列等高*/
+	margin-bottom: -9899px;
+	background-color: white;
+}
+#about_left{
+	float: left;
+}
+#about_right{
+	float: right;
+}
+#about_main .con_box{
+	width: 300px;
+	margin: 160px 0 0 50px;
+	position: relative;
+
+}
+.con_box p,li{
+	font: 16px "微软雅黑";
+}
+#about_main .tag_pic{
+	width: 100px;
+	height: 100px;
+	border: 6px solid #eee;
+	border-radius: 100%;
+	position: absolute;
+	top: -130px;
+	left: -109px;
+}
+.con_box .title{
+	width: 200px;
+	position: absolute;
+	left: -250px;
+	
+	font-size: 26px;
+}
+.con_box li{
+	margin-bottom: 30px;
+	position: relative;
+}
+.con_box .year_tag{
+	width: 50px;
+	height: 16px;
+	border: 6px solid #eee;
+	border-radius: 10px;
+	position: absolute;
+	left: -84px;
+	background-color: white;
+	text-align: center;
+	font-family: "微软雅黑";
+	line-height: 16px;
 }
