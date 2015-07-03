@@ -1,21 +1,55 @@
+var zhengxu = document.getElementById("zhengxu");
+var nixu = document.getElementById("nixu");
 var show = document.getElementById("show");
+var xunhuan = document.getElementById("xunhuan");
+var jiange = document.getElementById("interval");
+var stop = document.getElementById("stop");
 var pic = show.getElementsByTagName('img');
 var timer;
 var start_index;
 var listli = [], lista = [], i;
+var stop_flag = 0;
+var initial_flag = 1;
 addEvent(window, "load", function(){
 	//主调用
 	roundShow(1, 1, 2000);
+	console.log(xunhuan.getAttribute("checked"));
+	addEvent(zhengxu, "click", function(){
+		if(xunhuan.checked){
+			clearInterval(timer);
+			roundShow(1, 1, parseInt(jiange.value));
+		}
+		else{
+			clearInterval(timer);
+			roundShow(1, 0, parseInt(jiange.value));
+		}
+	});
+	addEvent(nixu, "click", function(){
+		if(xunhuan.checked){
+			clearInterval(timer);
+			roundShow(0, 1, parseInt(jiange.value));
+		}
+		else{
+			clearInterval(timer);
+			roundShow(0, 0, parseInt(jiange.value));
+		}
+	});
+	addEvent(stop, "click", function(){
+		clearInterval(timer);
+		stop_flag = 1;
+	});
+	//roundShow(1, 1, 2000);
 	//设置轮播参数，direction == 1 为正向，isloop == 1 为循环；
 	function roundShow(direction, isloop, interval){
 		//添加id与style.left并初始化；
 		(function(){
 			for(var k=0; k<pic.length; k++){
 				pic[k].setAttribute("id", "pic"+k);
-				pic[k].setAttribute("style", "left:"+800+"px; background-color:");					
+				pic[k].setAttribute("style", "left:"+800+"px; background-color:");		
+				try{lista[k].style.backgroundColor = ""}catch(ex){};			
 			}
 		})();
-		
+	// function roundShow(direction, isloop, interval){		
 		//生成对应图片的小点
 		(function createPointer(){
 			var list = document.createElement("ul");
@@ -26,6 +60,7 @@ addEvent(window, "load", function(){
 				list.appendChild(listli[i]); 
 				lista[i] = document.createElement("a");
 				lista[i].setAttribute("id", "point"+i);
+				lista[i].style.backgroundColor = "";
 				listli[i].appendChild(lista[i]);
 			}
 			//添加样式
@@ -40,7 +75,7 @@ addEvent(window, "load", function(){
 			}
 			var head = document.getElementsByTagName("head");
 			head[0].appendChild(style);
-
+	
 			//添加鼠标滑过小点时的动作
 			for(i=0; i<pic.length; i++){
 				lista[i].onmouseover = function(){
@@ -65,16 +100,25 @@ addEvent(window, "load", function(){
 				}
 				lista[i].onmouseout = function(){
 					clearInterval(timer);
-					timer = setInterval("roundPic("+direction+", "+isloop+")", interval);
+					if(!stop_flag){
+						timer = setInterval("roundPic("+direction+", "+isloop+")", interval);					
+					}
 				}
 			}		
 		})();
+
 		//按配置参数进行初始化
 		if(direction){
-			start_index = 0;
+			if(initial_flag){
+				start_index = 0;
+				initial_flag = 0;
+			}
 		}
 		else{
-			start_index = pic.length-1;
+			if(initial_flag){
+				start_index = pic.length-1;
+				initial_flag = 0;
+			}	
 		}
 		pic[start_index].style.left = 0;
 		lista[start_index].setAttribute("style", "background-color:white;");//首图片小点点亮
@@ -87,7 +131,6 @@ function movePic(nowid, nextid, direction){
 	//开始移动，将当前的小圆点灭掉
 	//lista[parseInt(nowid.replace(/[^0-9]+/g, ""))].setAttribute("style","");
 	lista[parseInt(nowid.replace(/[^0-9]+/g, ""))].style.backgroundColor = "";
-console.log(lista[parseInt(nowid.replace(/[^0-9]+/g, ""))].style);
 	now = document.getElementById(nowid+"");			
 	next = document.getElementById(nextid+"");
 	//为防止频繁快速调用（如鼠标很快的移动）造成的拉扯，所以每次都将积累在setTimeout队列中的事件清除；
@@ -131,7 +174,7 @@ console.log(lista[parseInt(nowid.replace(/[^0-9]+/g, ""))].style);
 //按设置顺序轮播图片
 function roundPic(direction, isloop){
 	//debug:如果在不循环且当前为最末index的情况下调用roundPic();
-	if(!isloop && (direction && start_index == pic.length-1) || (!direction && start_index == 0)){
+	if(!isloop && ((direction && start_index == pic.length-1) || (!direction && start_index == 0))){
 		pic[start_index].style.left = 0;
 		clearInterval(timer);
 		return;

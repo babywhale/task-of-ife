@@ -1,14 +1,10 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-<head>
-	<meta charset="utf-8"/>
-	<title>task0002_4 输入提示框</title>
-	<style type="text/css">
-		*{
-			margin: 0;
-			padding: 0;
-			list-style: none;
-		}
+    <head>
+    	<meta charset="utf-8"/>
+    	<title>task0002 JavaScript</title>
+        <link rel="stylesheet" type="text/css" href="style/main.css">
+       <style type="text/css">
 		#tishi_wrap{
 			width: 600px;
 			margin: 50px auto;
@@ -19,11 +15,35 @@
 			width: 200px;
 		}
 	</style>
-</head>
-<body>
-	<div id="tishi_wrap">
-		<input type="text" id="text_input"/>
-	</div>
-	<script type="text/javascript" src="script/util.js"></script>
-	<script type="text/javascript" src="script/task0002_4.js"></script>
-</body>
+    </head>
+    <body>
+        <div class="header">
+            <a href="https://github.com/babywhale/task-of-ife/tree/master/task0002" id="code" target="_blank">view the code</a>
+        </div>
+        <div id="nav" class="section">
+        	<ul>
+        		<a href="task0002_1.html"><li>输入交互</li></a>
+        		<a href="task0002_2.html"><li>倒计时</li></a>
+        		<a href="task0002_3.html"><li>轮播图</li></a>
+        		<a href="task0002_4.html"><li class="now">输入提示框</li></a>
+        		<a href="task0002_5.html"><li>界面拖拽交互</li></a>
+        	</ul>
+        </div>
+        <div id="discription" class="section">
+        	<ul>
+        		<li>允许使用鼠标点击选中提示栏中的某个选项</li>
+        		<li>允许使用键盘上下键来选中提示栏中的某个选项，回车确认选中</li>
+        		<li>选中后，提示内容变更到输入框中</li>
+        	</ul>
+        </div>
+        <div id="content" class="section">
+        	<div id="tishi_wrap">
+				<input type="text" id="text_input"/>
+			</div>
+        </div>
+        <div class="footer">
+        </div>
+        <script type="text/javascript" src="script/util.js"></script>
+		<script type="text/javascript" src="script/task0002_4.js"></script>
+    </body>
+</html>

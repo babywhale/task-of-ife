@@ -24,7 +24,13 @@ addEvent(window, "load", function(){
 			addEvent(lis[i], "mouseover", function(){
 				for(var k=0; k<lis.length; k++){//for-in是个奇妙的东西
 					lis[k].style.backgroundColor = "white";
+					console.log(lis[k]);
 				}
+
+				// for(var kk in lis){
+				// 	console.log(kk);
+				// }
+
 				var target = event.target || event.srcElement;
 				target.style.backgroundColor = "#eee";
 			});

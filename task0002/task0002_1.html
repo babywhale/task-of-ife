@@ -1,19 +1,40 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-	<meta charset="utf-8" />
-	<title>task0002_1</title> 
-</head>
-<body>
-	<div id="habit">
-			<!-- <input type="text" id="habit_text" size="100" /> -->
-			<textarea rows="10" cols="50" id="habit_text"></textarea>
-			<br/>
-			<input type="button" id="habit_btn" value="submit" />
-	</div>
-
-	<script type="text/javascript" src="script/util.js"></script>
-	<script type="text/javascript" src="script/task0002_1.js"></script>
-
-</body>
+<!doctype html>
+<html>
+    <head>
+    	<meta charset="utf-8"/>
+    	<title>task0002 JavaScript</title>
+        <link rel="stylesheet" type="text/css" href="style/main.css">
+    </head>
+    <body>
+        <div class="header">
+            <a href="https://github.com/babywhale/task-of-ife/tree/master/task0002" id="code" target="_blank">view the code</a>
+        </div>
+        <div id="nav" class="section">
+        	<ul>
+        		<a href="task0002_1.html"><li class="now">输入交互</li></a>
+        		<a href="task0002_2.html"><li>倒计时</li></a>
+        		<a href="task0002_3.html"><li>轮播图</li></a>
+        		<a href="task0002_4.html"><li>输入提示框</li></a>
+        		<a href="task0002_5.html"><li>界面拖拽交互</li></a>
+        	</ul>
+        </div>
+        <div id="discription" class="section">
+        	<ul>
+        		<li>用户输入的爱好数量不能超过10个，也不能什么都不输入。当发生异常时，在按钮上方显示一段红色的错误提示文字，并且不继续执行后面的行为</li>
+        		<li>当输入正确时，提示文字消失</li>
+        		<li>当点击按钮时,每一个爱好输出成为一个checkbox，爱好内容作为checkbox的label</li>
+            </ul>
+        </div>
+        <div id="content" class="section">
+        	<div id="habit">
+				<textarea rows="10" cols="50" id="habit_text"></textarea>
+				<br/>
+				<input type="button" id="habit_btn" value="submit" />
+			</div>
+        </div>
+        <div class="footer">
+        </div>
+        <script type="text/javascript" src="script/util.js"></script>
+		<script type="text/javascript" src="script/task0002_1.js"></script>
+    </body>
 </html>

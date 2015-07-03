@@ -1,0 +1,97 @@
+<!doctype html>
+<html>
+    <head>
+    	<meta charset="utf-8"/>
+    	<title>task0002 JavaScript</title>
+        <link rel="stylesheet" type="text/css" href="style/main.css">
+       <style type="text/css">
+		#drag{
+			width: 400px;
+			margin: 50px auto;
+			overflow: hidden;
+		}
+		.wrap{
+			width: 100px;
+			height: 247px;
+			border: 1px solid black;
+			background-color: white;
+			position: relative;
+		}
+		#left{
+			float: left;
+		}
+		#right{
+			float: right;
+		}
+		.box{
+			height: 30px;
+			background-color: red;
+			border: 1px solid black;
+			margin: -1px;
+
+		}
+		#test_wrap{
+			height: 200px;
+			border: 50px solid yellow;
+		}
+		#test0{
+			width: 100px;
+			height: 100px;
+			border: 50px solid red;
+			margin: -50px;
+			background-color: green;
+		}
+		#test{
+			width: 100px;
+			height: 100px;
+			border: 50px solid black;
+			margin: -50px;
+			background-color: green;
+		}
+	</style>
+    </head>
+    <body>
+        <div class="header">
+        	<a href="https://github.com/babywhale/task-of-ife/tree/master/task0002" id="code" target="_blank">view the code</a>
+        </div>
+        <div id="nav" class="section">
+        	<ul>
+        		<a href="task0002_1.html"><li>输入交互</li></a>
+        		<a href="task0002_2.html"><li>倒计时</li></a>
+        		<a href="task0002_3.html"><li>轮播图</li></a>
+        		<a href="task0002_4.html"><li>输入提示框</li></a>
+        		<a href="task0002_5.html"><li class="now">界面拖拽交互</li></a>
+        	</ul>
+        </div>
+        <div id="discription" class="section">
+        	<ul>
+        		<li>实现一个可拖拽交互的界面</li>
+        		<li>如示例图，左右两侧各有一个容器，里面的选项可以通过拖拽来左右移动</li>
+        		<li>被选择拖拽的容器在拖拽过程后，在原容器中消失，跟随鼠标移动</li>
+        		<li>注意拖拽释放后，要添加到准确的位置</li>
+        		<li>拖拽到什么位置认为是可以添加到新容器的规则自己定</li>
+        		<li>注意交互中良好的用户体验和使用引导</li>
+        	</ul>
+        </div>
+        <div id="content" class="section">
+        	<div id="drag">
+				<div id="left" class="wrap">
+					<div class="box"></div>
+					<div class="box"></div>
+					<div class="box"></div>
+					<div class="box"></div>
+				</div>
+				<div id="right" class="wrap">
+					<div class="box"></div>
+					<div class="box"></div>
+					<div class="box"></div>
+					<div class="box"></div>
+				</div>	
+			</div>
+        </div>
+        <div class="footer">
+        </div>
+        <script type="text/javascript" src="script/util.js"></script>
+		<script type="text/javascript" src="script/task0002_5.js"></script>
+    </body>
+</html>

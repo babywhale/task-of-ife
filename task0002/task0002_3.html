@@ -1,19 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="utf-8" />
-	<title>task0002_3 轮播图</title>
-	<style type="text/css">
-		*{
-			margin: 0;
-			padding: 0;
-			list-style: none;
-		}
+<!doctype html>
+<html>
+    <head>
+    	<meta charset="utf-8"/>
+    	<title>task0002 JavaScript</title>
+        <link rel="stylesheet" type="text/css" href="style/main.css">
+        <style type="text/css">
 		#show{
 			width: 800px;
 			height: 300px;
 			position: relative;
-			margin: 50px auto;
+			/*margin: 20px auto;*/
+            margin-top: 20px;
 			overflow: hidden;
 		}
 		#pics img{
@@ -21,20 +18,53 @@
 			height: 300px;
 			position: absolute;
 		}
+        #content{
+            padding: 30px 5px;
+        }
 	</style>
-</head>
-<body>
-	<div id="show">
-		<ul id="pics">
-			<li><img src="img/000.jpg" alt="" /></li>
-			<li><img src="img/001.jpg" alt="" /></li>
-			<li><img src="img/002.jpg" alt="" /></li>
-			<li><img src="img/003.jpg" alt="" /></li>
-			<li><img src="img/004.jpg" alt="" /></li>
-			<li><img src="img/005.jpg" alt="" /></li>
-		</ul>
-	</div>
-	<script type="text/javascript" src="script/util.js"></script>
-	<script type="text/javascript" src="script/task0002_3.js"></script>
-</body>
+    </head>
+    <body>
+        <div class="header">
+            <a href="https://github.com/babywhale/task-of-ife/tree/master/task0002" id="code" target="_blank">view the code</a>
+        </div>
+        <div id="nav" class="section">
+        	<ul>
+        		<a href="task0002_1.html"><li>输入交互</li></a>
+        		<a href="task0002_2.html"><li>倒计时</li></a>
+        		<a href="task0002_3.html"><li class="now">轮播图</li></a>
+        		<a href="task0002_4.html"><li>输入提示框</li></a>
+        		<a href="task0002_5.html"><li>界面拖拽交互</li></a>
+        	</ul>
+        </div>
+        <div id="discription" class="section">
+        	<ul>
+        		<li>图片数量及URL均在HTML中写好</li>
+        		<li>可以配置轮播的顺序（正序、逆序）、是否循环、间隔时长</li>
+        		<li>图片切换的动画要流畅</li>
+        		<li>在轮播图下方自动生成对应图片的小点，点击小点，轮播图自动动画切换到对应的图片</li>
+        	</ul>
+        </div>
+        <div id="content" class="section">
+        	<div id="show">
+				<ul id="pics">
+					<li><img src="img/000.jpg" alt="" /></li>
+					<li><img src="img/001.jpg" alt="" /></li>
+					<li><img src="img/002.jpg" alt="" /></li>
+					<li><img src="img/003.jpg" alt="" /></li>
+					<li><img src="img/004.jpg" alt="" /></li>
+					<li><img src="img/005.jpg" alt="" /></li>
+				</ul>
+			</div>
+			<input type="button" id="zhengxu" value="正序播放"/>
+			<input type="button" id="nixu" value="逆序播放"/>
+			<label><input type="checkbox" id="xunhuan" checked="checked"/>循环</label>
+			间隔<input type="text" id="interval" size="10" value="2000" />ms
+            <input type="button" id="stop" value="停止播放"/>
+
+        </div>
+        <div class="footer">
+        </div>
+       <script type="text/javascript" src="script/util.js"></script>
+		<script type="text/javascript" src="script/task0002_3.js"></script>
+    </body>
 </html>

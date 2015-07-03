@@ -1,15 +1,41 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-	<meta charset="utf-8" />
-	<title>task0002_2 倒计时</title>
-</head>
-<body>
-	<div id="count_down">
-		<input type="text" size="15" id="input_time" placeholder="YYYY-MM-DD"/>
-		<input type="button" id="time_btn" value="倒计时" /> 
-	</div>
-	<script type="text/javascript" src="script/util.js"></script>
-	<script type="text/javascript" src="script/task0002_2.js"></script>
-</body>
+<!doctype html>
+<html>
+    <head>
+    	<meta charset="utf-8"/>
+    	<title>task0002 JavaScript</title>
+        <link rel="stylesheet" type="text/css" href="style/main.css">
+    </head>
+    <body>
+        <div class="header">
+            <a href="https://github.com/babywhale/task-of-ife/tree/master/task0002" id="code" target="_blank">view the code</a>
+        </div>
+        <div id="nav" class="section">
+        	<ul>
+        		<a href="task0002_1.html"><li>输入交互</li></a>
+        		<a href="task0002_2.html"><li class="now">倒计时</li></a>
+        		<a href="task0002_3.html"><li>轮播图</li></a>
+        		<a href="task0002_4.html"><li>输入提示框</li></a>
+        		<a href="task0002_5.html"><li>界面拖拽交互</li></a>
+        	</ul>
+        </div>
+        <div id="discription" class="section">
+        	<ul>
+        		<li>界面首先有一个文本输入框，允许按照特定的格式YYYY-MM-DD输入年月日；</li>
+        		<li>输入框旁有一个按钮，点击按钮后，计算当前距离输入的日期的00:00:00有多少时间差</li>
+        		<li>在页面中显示，距离YYYY年MM月DD日还有XX天XX小时XX分XX秒</li>
+        		<li>每一秒钟更新倒计时上显示的数</li>
+        		<li>如果时差为0，则倒计时停止</li>
+        	</ul>
+        </div>
+        <div id="content" class="section">
+        	<div id="count_down">
+				<input type="text" size="15" id="input_time" placeholder="YYYY-MM-DD"/>
+				<input type="button" id="time_btn" value="倒计时" /> 
+			</div>
+        </div>
+        <div class="footer">
+        </div>
+        <script type="text/javascript" src="script/util.js"></script>
+		<script type="text/javascript" src="script/task0002_2.js"></script>
+    </body>
 </html>
