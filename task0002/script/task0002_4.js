@@ -26,11 +26,6 @@ addEvent(window, "load", function(){
 					lis[k].style.backgroundColor = "white";
 					console.log(lis[k]);
 				}
-
-				// for(var kk in lis){
-				// 	console.log(kk);
-				// }
-
 				var target = event.target || event.srcElement;
 				target.style.backgroundColor = "#eee";
 			});

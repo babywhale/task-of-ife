@@ -8,7 +8,7 @@
 body{
 	margin-bottom: -100px;
 	background-color: #EEEEEE;
-	width: 100%;
+	/*width: 100%;*/
 	
 }
 section p{
@@ -16,7 +16,7 @@ section p{
 }
 /****************************head部分*****************************/
 header{
-	width: 100%;
+	/*width: 100%;*/
 	min-width: 1060px;
 	height: 80px;
 	background-color: #522A5C;
@@ -55,7 +55,7 @@ header{
 }
 /****************************foot部分*****************************/
 footer{
-	width: 100%;
+	/*width: 100%;*/
 	min-width: 1060px;
 	min-height: 500px;
 	background-color: black;
@@ -116,18 +116,16 @@ hr{
 	
 }
 /****************************index部分*****************************/
+
 .top{
 	
-	width: 100%;
+	/*width: 100%;*/
 	height: 600px;/*怎样确定高度*/
-	background: white url(../img/banner-bg.jpg) no-repeat scroll;
+	background: white url(../img/banner-bg.jpg) no-repeat top center scroll;
 	background-size: auto 100%;
 	position:relative;
 
 }
-
-	
-
 .top-content{
 	width: 400px;
 	height: 100px;
@@ -150,7 +148,7 @@ hr{
 	line-height: 150%;
 }
 .middle{
-	width: 100%;
+/*	width: 100%;*/
 	min-height: 500px;
 	background-color: #eee;
 	padding-bottom: 100px;
@@ -169,8 +167,6 @@ hr{
 	text-align: left;
 	padding-bottom: 99999px;
 	margin-bottom: -99999px;
-
-
 }
 .box img{
 	margin: 10px 10px;
@@ -179,11 +175,10 @@ hr{
 	padding: 5px 30px 25px;
 }
 .bottom{
-	width: 100%;
+/*	width: 100%;*/
 	min-height: 440px;
 	background-color: white;
 	position: relative;
-	
 }
 .bottom h1{
 	width: 600px;
@@ -196,6 +191,7 @@ hr{
 	text-align: left;
 	margin: 0 auto;
 	font: 14px 宋体;
+	text-indent: 2em;
 }
 #portrait{
 	position: absolute;

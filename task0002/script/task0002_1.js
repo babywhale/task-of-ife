@@ -86,7 +86,7 @@ console.log(warning);
 					newhabits.push(habits[i]);
 				}
 			}
-			var check = [], lable = [];
+			var check = [], label = [];
 			for(var j=0; j<newhabits.length; j++){
 				btn.parentNode.appendChild(document.createElement("br"));
 				//lable的for属性对应checkbox的id
@@ -95,10 +95,10 @@ console.log(warning);
 				check[j].setAttribute("checked", "checked");
 				check[j].setAttribute("id", "habit"+j);
 				btn.parentNode.appendChild(check[j]);
-				lable[j] = document.createElement("lable");
-				lable[j].innerHTML = newhabits[j];
-				lable[j].setAttribute("for", "habit"+j);
-				btn.parentNode.appendChild(lable[j]);
+				label[j] = document.createElement("label");
+				label[j].innerHTML = newhabits[j];
+				label[j].setAttribute("for", "habit"+j);
+				btn.parentNode.appendChild(label[j]);
 			}
 		}
 	});

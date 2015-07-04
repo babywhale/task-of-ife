@@ -1,111 +1,162 @@
-var startX;         // 点击滑块时鼠标的坐标
-var startY;
-var startLeft;      // 拖动前滑块中心的坐标   length  each
-var startTop;
-var wrap = document.getElementsByClassName('wrap');
-
-/* 工具函数 */
-function nextDrag(element) {                     // 获取下一个滑块
-    var brother = element.nextSibling;
-    while (brother && brother.nodeName === '#text') {
-        brother = nextDrag(brother);
+var wrap = document.getElementsByClassName("wrap");
+var box = document.getElementsByClassName("box");
+var EventUtil = {
+    preventDefault: function(event){
+        if(event.preventDefault){
+            event.preventDefault();
+        }
+        else{
+            event.returnValue = false;
+        }
+    },
+    getTarget: function(event){
+        return event.target || event.srcElement;
     }
-    return brother;
-}
+};
 
-function moveDrag(element, move) {               // 将某滑块及其下面的滑块移动move个像素
-    while (element) {
-        element.style.top = parseInt(element.style.top) + move + 'px';
-        element = nextDrag(element);
-    }
-}
-
-function getLocation(event) {                    // 计算滑块降落的位置
-    var location = [];                           // location的第一个元素代表容器的序号，第二个元素代表滑块在容器中的序号
-    var moveX = event.clientX - startX;          // 计算滑块中心的位置
-    var moveY = event.clientY - startY;
-    var y = startTop + moveY;
-    var x = startLeft + moveX;
-
-    if (x < 500) {                               // 容器的序号
-        location[0] = 0;
-    }
-    // else if (x >= 230 && x <= 540) {
-    //     location[0] = 1;
-    // }
+//获取元素相对位置（相对于窗口）
+function getElementViewLeft(element){
+　　var actualLeft = element.offsetLeft;
+　　var current = element.offsetParent;
+　　while (current !== null){
+　　　　actualLeft += current.offsetLeft;
+　　　　current = current.offsetParent;
+　　}
+　　if (document.compatMode == "BackCompat"){
+　　　　var elementScrollLeft=document.body.scrollLeft;
+　　} 
     else {
-        location[0] = 1;
+　　　　var elementScrollLeft=document.documentElement.scrollLeft; 
+　　}
+　　return actualLeft-elementScrollLeft;
+}
+function getElementViewTop(element){
+　　var actualTop = element.offsetTop;
+　　var current = element.offsetParent;
+　　while (current !== null){
+　　　　actualTop += current. offsetTop;
+　　　　current = current.offsetParent;
+　　}
+　　if (document.compatMode == "BackCompat"){
+　　　　var elementScrollTop=document.body.scrollTop;
+　　} 
+    else {
+　　　　var elementScrollTop=document.documentElement.scrollTop; 
+　　}
+　　return actualTop-elementScrollTop;
+}
+
+addEvent(window, "load", function(){
+    for(var i=0; i<wrap.length; i++){
+        //使容器可放置
+        addEvent(wrap[i], "dragenter", function(){
+            EventUtil.preventDefault(event);
+            event.dataTransfer.dropEffect = "move";
+            event.dataTransfer.effectAllowed = "move";
+        });
+        addEvent(wrap[i], "dragover", function(){
+            EventUtil.preventDefault(event);
+        });
+        wrap[i].xpos = getElementViewLeft(wrap[i]);
+        wrap[i].ypos = getElementViewTop(wrap[i]);
     }
+    for(var j=0; j<box.length; j++){
+        //使 box可拖动
+        box[j].setAttribute("draggable", "true");
 
-    location[1] = Math.floor((y + 15) / 30);      // 滑块在容器中的序号
-    var dragNum = wrap[location[0]].getElementsByClassName('box').length;  // 容器中滑块的数量
-    location[1] = Math.max(location[1], 0);
-    location[1] = Math.min(location[1], dragNum);
-
-    return location;
-}
-
-/* 事件函数 */
-function dragStart(e) {                                      // 开始拖动，整理原容器的其他滑块及记录一些数据
-    var wrapLeft = $('.drag-container').offsetLeft;          // 计算滑块中心相对drag-container的位置之用
-    e = e || window.event;
-    var parent = this.parentNode;
-    startX = e.clientX;                                      // 记录鼠标位置
-    startY = e.clientY;
-    startTop = parseInt(this.style.top) + 15;                // 滑块中心相对容器的位置
-    startLeft = parent.offsetLeft - wrapLeft + 50;
-    this.style.zIndex = 1;
-    moveDrag(nextDrag(this), -31);                           // 下面的滑块上移41个像素
-}
-
-function draging(e) {                                        // 拖动中，使滑块在原容器中消失
-    if (this.className !== 'dragging') {
-        this.className = 'dragging';
+        var box_width = box[j].offsetWidth;
+        var box_height = box[j].offsetHeight;
+        addEvent(box[j], "drag", function(){
+            var target = EventUtil.getTarget(event);
+            target.style.position = "fixed";
+            var xpos = event.clientX;
+            var ypos = event.clientY;
+            target.style.left = xpos+"px";
+            target.style.top = ypos+"px";
+        });
+        addEvent(box[j], "dragend", function(){
+            var target = EventUtil.getTarget(event);
+            var center_x = event.clientX + box_width/2;
+            var center_y = event.clientY + box_height/2;
+            console.log(wrap[0].ypos + wrap[0].offsetHeight);
+            if((center_x > wrap[0].xpos + 50) && (center_x < wrap[0].xpos + wrap[0].offsetWidth + 50) && (center_y > wrap[0].ypos) && (center_y < wrap[0].ypos + wrap[0].offsetHeight)){
+                target.parentNode.removeChild(target);
+                wrap[0].appendChild(target);
+            }
+            if(center_x > wrap[1].xpos + 50 && center_x < wrap[1].xpos + wrap[1].offsetWidth + 50 && center_y > wrap[1].ypos && center_y < wrap[1].ypos + wrap[1].offsetHeight){
+                target.parentNode.removeChild(target);
+                wrap[1].appendChild(target);
+            }
+            target.style.position = "static";
+        });
     }
-}
+});
 
-function dragOver(e) {                                       // 拖动中，避免浏览器对容器的默认处理（默认无法将数据/元素放置到其他元素中）
-    e.preventDefault();
-}
 
-function drop(e) {                                           // 拖动结束，将滑块加到新容器
-    e = e || window.event;
-    e.preventDefault();                                          // 避免浏览器对容器的默认处理（默认以链接形式打开）
-    var location = getLocation(e);                               // 滑块降落的位置
-    var myWrap = wrap[location[0]];
-    var myDrag = myWrap.getElementsByClassName('box')[location[1]];
-    if (myDrag) {
-        var myTop = myDrag.style.top;
-    }
-    else {                                                       // 兼容降落位置没有滑块的情况
-        var beforeDrag = myWrap.getElementsByClassName('box')[location[1] - 1];
-        if (beforeDrag) {
-            var beforeTop = parseInt(beforeDrag.style.top);
-        }
-        else {                                                   // 兼容容器中没有其他滑块的情况
-            beforeTop = -31;
-        }
-        var myTop = beforeTop + 31 + 'px';
-    }
-    moveDrag(myDrag, 31);
 
-    var block = document.getElementsByClassName('dragging')[0];  // 将被拖拽滑块加到新容器
-    block.style.top = myTop;
-    block.style.zIndex = 0;
-    block.className = 'box';
-    myWrap.insertBefore(block, myDrag);
-}
 
-window.onload = function () {
-    var box = document.getElementsByClassName('box');
-    for (var i = 0, len = box.length; i < len; i++) {
-        box[i].draggable = true;
-        box[i].style.top = (i % 6 * 31) + 'px';
 
-        $.on('.box', 'dragstart', dragStart);                       // 开始拖动，整理原容器的其他滑块及记录一些数据
-        $.on('.box', 'drag', draging);                              // 拖动中，使滑块在原容器中消失
-    }
 
-    $.on('body', 'dragover', dragOver);                       // 拖动中，避免浏览器对容器的默认处理（默认无法将数据/元素放置到其他元素中）
-    $.on('body', 'drop', drop);                               // 拖动结束，将滑块加到新容器
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

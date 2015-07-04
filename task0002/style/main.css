@@ -67,11 +67,11 @@
 	border-top-left-radius: 15px;
 	border-bottom-left-radius: 15px;
 	padding-right: 5px;
-	background-color: green;
+	background-color: #171;
 }
 #nav li.now{
 	color: white;
-	background-color: blue;
+	background-color: #188;
 }
 .footer{
 	clear: both;
