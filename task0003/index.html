@@ -3,12 +3,13 @@
 <head>
 	<meta charset="UTF-8">
 	<title>my-todo-list</title>
+	<link rel="stylesheet" type="text/css" href="style/main.css">
 </head>
 <body>
 	<div id="header">
 		<h1>GTD Tools</h1>
 	</div>
-	<div id="floder">
+	<div id="folder">
 		<div class="all">
 			<h3>所有任务</h3>
 		</div>
@@ -16,12 +17,12 @@
 			<h3>分类列表</h3>
 			<ul>
 				<li class="default">
-					<img src="img/floder.jpg" alt="floder img">
-					<h3>默认分类 (<span>0</span>)</h3>
+					
+					<p><img src="img/folder.ico" alt="floder img">默认分类 (<span>0</span>)</p>
 				</li>
 			</ul>
 		</div>
-		<div class="add">新增分类</div>
+		<!-- <div class="add">新增分类</div> -->
 	</div>
 	<div id="file">
 		<div class="finishtab">
@@ -29,8 +30,8 @@
 			<h3 class="unfinishtab">未完成</h3>
 			<h3 class="finishedtab">已完成</h3>
 		</div>
-		<div class="filelist"></div>
-		<div class="add">新增任务</div>
+		<div class="filelist clear"></div>
+		<!-- <div class="add">新增任务</div> -->
 	</div>
 	<div id="content">
 		<div class="title">
@@ -40,5 +41,8 @@
 		<div class="time"></div>
 		<div class="content"></div>
 	</div>
+	<div class="clear"></div>
+	<div class="add"><img src="img/plus.ico">新增分类</div>
+	<div class="add"><img src="img/plus.ico">新增任务</div>
 </body>
 </html>
